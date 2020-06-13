@@ -1,10 +1,9 @@
 
-# Name : Selection Sort Animation
+# Name : Bubble Sort Animation
 # Author : Soroush Javed Sulehri
-# Liscence : MIT
-# Sorting Series : Part 1(b)
+# Liscence : MIT Liscence 
+# Sorting Series Part 2(b)
 # Email : soroushjaved@gmail.com
-
 
 import turtle
 import random
@@ -17,12 +16,13 @@ screen = turtle.Screen()
 screen.setup(2000,2000)
 # Complicated Argument mostly means that the turtle should not show every step of animation
 screen.tracer(10,10)
-screen.title('Selection Sort')
+screen.title('Bubble Sort')
 turtle.speed(0)
 turtle.hideturtle()
 
 # Taking number of bars as input
-n = int(input("Enter the number of bars to randomly distribute (10-100) : "))
+#n = int(input("Enter the number of bars to randomly distribute (10-100) : "))
+n = int(input("Enter the number of elements you want in the array : "))
 l = [0] * n
 # Random Generation of list 
 for i in range(n):
@@ -58,26 +58,24 @@ def draw_bars(l, n):
     screen.update()
 
 # Main Function and Sorting 
-def Sort(l):
-    for i in range(len(l)):
-        global c
-        global c2
-        c = i
-        for j in range(i+1, len(l)):
-            c2 = j
-            if l[i] > l[j]:
-                temp = l[i]
-                l[i] = l[j]
-                l[j] = temp
+def bubble_sort(l):
+     global c
+     global c2
+     for i in range(n -1):
+        for j in range(0, n-i-1):
+             c = j
+             c2 = j + 1
+             if l[j] > l[j+1]: 
+                 l[j], l[j+1] = l[j+1], l[j]
         screen.update()
         turtle.clear()
         draw_bars(l,n)
         screen.update()
-        time.sleep(0.3)
-    
+        time.sleep(0.5) #time dealy added for sake for animation 
+
 
 # Function Call 
-Sort(l)
+bubble_sort(l)
 
     
 
